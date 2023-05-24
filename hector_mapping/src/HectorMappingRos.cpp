@@ -72,8 +72,8 @@ HectorMappingRos::HectorMappingRos()
   private_nh_.param("update_factor_free", p_update_factor_free_, 0.4);
   private_nh_.param("update_factor_occupied", p_update_factor_occupied_, 0.9);
 
-  private_nh_.param("map_update_distance_thresh", p_map_update_distance_threshold_, 0.4);
-  private_nh_.param("map_update_angle_thresh", p_map_update_angle_threshold_, 0.9);
+  private_nh_.param("map_update_distance_thresh", p_map_update_distance_threshold_, 0.1); //.4
+  private_nh_.param("map_update_angle_thresh", p_map_update_angle_threshold_, 0.3);  //0.9
 
   private_nh_.param("scan_topic", p_scan_topic_, std::string("scan"));
   private_nh_.param("sys_msg_topic", p_sys_msg_topic_, std::string("syscommand"));
@@ -92,13 +92,13 @@ HectorMappingRos::HectorMappingRos()
 
   private_nh_.param("output_timing", p_timing_output_,false);
 
-  private_nh_.param("map_pub_period", p_map_pub_period_, 2.0);
+  private_nh_.param("map_pub_period", p_map_pub_period_, 1.0); //2.0
 
   double tmp = 0.0;
-  private_nh_.param("laser_min_dist", tmp, 0.4);
+  private_nh_.param("laser_min_dist", tmp, 0.1); //0.2//0.4
   p_sqr_laser_min_dist_ = static_cast<float>(tmp*tmp);
 
-  private_nh_.param("laser_max_dist", tmp, 30.0);
+  private_nh_.param("laser_max_dist", tmp, 15.0); //30
   p_sqr_laser_max_dist_ = static_cast<float>(tmp*tmp);
 
   private_nh_.param("laser_z_min_value", tmp, -1.0);
